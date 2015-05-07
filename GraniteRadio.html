@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300' rel='stylesheet' type='text/css'>
+        <style>
+        /* BASE STYLES BEGIN HERE - DO NOT TAKE INTO ACCOUNT */
+        * {
+            box-sizing: border-box;
+        }
+
+        ::-moz-selection {
+            background-color: #F1C40F;
+            color: #222;
+        }
+
+        ::selection {
+            background-color: #F1C40F;
+            color: #222;
+        }
+
+        body {
+            background: #3498DB;
+            font-family: 'Open Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+        }
+
+        h1 {
+            color: #EEE;
+            font-size: 30px;
+            text-align: center;
+            margin: 20px 0 0 0;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #222;
+            margin: 30px 0 0 0;
+        }
+
+        .question {
+            display: inline-block;
+            width: 100%;
+            padding: 10% 25% 0 25%;
+        }
+
+        .responses {
+            display: flex;
+            display: -webkit-flex;
+        }
+        /* BASE STYLES END HERE */
+
+        /* RADIO CONTROL STYLING BEGINS HERE */
+        .radioWrapper {
+            /* This is the outer circle of the radio control */
+            width: 18px;
+            height: 18px;
+            position: relative;
+            margin: 20px auto;
+            background: #fcfff4;
+            background: -webkit-linear-gradient(top, #FCFFF4 0%, #DFE5D7 40%, #B3BEAD 100%);
+            background: linear-gradient(to bottom, #FCFFF4 0%, #DFE5D7 40%, #B3BEAD 100%);
+            border-radius: 50px;
+            box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .radioWrapper label {
+            /* This is the inner circle of the radio control */
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            cursor: pointer;
+            background: -webkit-linear-gradient(top, #222222 0%, #45484D 100%);
+            background: linear-gradient(to bottom, #222222 0%, #45484D 100%);
+            border-radius: 50px;
+            box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+        }
+
+        .radioWrapper label:after {
+            /* This is the actual check / tick */
+            content: '';
+            width: 6px;
+            height: 2px;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            /* This is the weight of the check / tick as well as it's color*/
+            border: 2px solid #FCFFF4;
+            border-top: none;
+            border-right: none;
+            background: transparent;
+            opacity: 0;
+            /* This is what makes the borders transform into a check */
+            /* NOT SUPPORTED IN IE < 9 - will require falling back on a classic radio */
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            transition: opacity ease-in-out .2s;
+        }
+
+        .radioWrapper label:hover::after {
+            opacity: 0.5;
+            transition: opacity ease-in-out .2s;
+        }
+
+        .radioWrapper input[type=radio] {
+            visibility: hidden;
+            transition: opacity ease-in-out .2s;
+        }
+
+        .radioWrapper input[type=radio]:checked + label:after {
+            opacity: 1;
+        }
+
+        .item-label {
+            position: absolute;
+            left: 26px;
+            top: -4px;
+            width: 250px;
+            color: #2C3E50;
+            font-weight: 600;
+            transition: color ease-in-out .2s;
+            /* Prevents selecting response item text - optional */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .radioWrapper input[type=radio]:hover + label span, .radioWrapper input[type=radio]:checked + label span {
+            /* Allows the response item to change color when hovered and/or selected */
+            color: #222;
+        }
+        /* RADIO CONTROL STYLING ENDS HERE */
+        </style>
+    </head>
+    <body>
+        <h1>CSS only radios</h1>
+        <div class="question">
+            <h2>Which is your favorite wizard?</h2>
+            <div class="responses">
+                <section>
+                    <div class="radioWrapper">
+                        <input type="radio" value="None" id="item-1" name="check" />
+                        <label for="item-1">
+                            <span class="item-label">Gandalf the Grey</span>
+                        </label>
+                    </div>
+                    <div class="radioWrapper">
+                        <input type="radio" value="None" id="item-2" name="check" />
+                        <label for="item-2">
+                            <span class="item-label">Saruman the White</span>
+                        </label>
+                    </div>
+                    <div class="radioWrapper">
+                        <input type="radio" value="None" id="item-3" name="check" />
+                        <label for="item-3">
+                            <span class="item-label">Alatar the Blue</span>
+                        </label>
+                    </div>
+                    <div class="radioWrapper">
+                        <input type="radio" value="None" id="item-4" name="check" />
+                        <label for="item-4">
+                            <span class="item-label">Radagast the Brown</span>
+                        </label>
+                    </div>
+                    <div class="radioWrapper">
+                        <input type="radio" value="None" id="item-5" name="check" />
+                        <label for="item-5">
+                            <span class="item-label">Pallando the Blue</span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+<html>
